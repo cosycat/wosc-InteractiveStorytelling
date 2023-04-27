@@ -3,9 +3,21 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace WorldState {
-    public class Slot : MonoBehaviour
+    public class Slot : Furniture
     {
+        public enum SlotType {
+            Sitting,
+            Standing,
+        }
+        [SerializeField] private SlotType slotType;
+
         [SerializeField] private Vector2 dimensions = new(1f, 1f);
+        
+        
+        /// <summary>
+        /// Whether the slot is a sitting or standing slot.
+        /// </summary>
+        public SlotType Type => slotType;
 
         /// <summary>
         /// The center position of the slot.
