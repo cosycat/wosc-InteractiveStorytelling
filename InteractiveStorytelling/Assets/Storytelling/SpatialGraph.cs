@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using JetBrains.Annotations;
 using UnityEngine;
 using WorldState;
@@ -19,8 +21,19 @@ namespace Storytelling {
             Rooms = new HashSet<RoomNode>(rooms);
         }
 
-        public static HashSet<SpatialGraph> CreateAllSpatialGraphs(EventFrame eventFrame, IEnumerable<Room> rooms, IEnumerable<NPC> npcs, IEnumerable<Item> items) {
-            throw new System.NotImplementedException();
+        public static HashSet<SpatialGraph> CreateAllSpatialGraphs(EventGraph eventGraph) {
+            HashSet<Slot> allPossibleCharacterSlots = eventGraph.F.Where(F => F.IsCharacterSlot).Select(furniture => furniture.CharacterSlot).ToHashSet();
+            HashSet<NPC> allCharacters = eventGraph.C;
+            
+            // Generate Spatial Graphs for each possible combination of character slots and characters.
+            foreach (Slot characterSlot in allPossibleCharacterSlots) {
+                foreach (NPC character in allCharacters) {
+                    
+                }
+            }
+
+            throw new NotImplementedException();
+
         }
     }
     

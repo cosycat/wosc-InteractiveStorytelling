@@ -13,7 +13,8 @@ namespace WorldState {
 
         [SerializeField] private Vector2 dimensions = new(1f, 1f);
         
-        
+        public override Slot CharacterSlot => this;
+
         /// <summary>
         /// Whether the slot is a sitting or standing slot.
         /// </summary>
