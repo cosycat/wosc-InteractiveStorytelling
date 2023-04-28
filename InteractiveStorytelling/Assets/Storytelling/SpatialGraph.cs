@@ -25,12 +25,12 @@ namespace Storytelling {
             HashSet<Slot> allPossibleCharacterSlots = eventGraph.F.Where(F => F.IsCharacterSlot).Select(furniture => furniture.CharacterSlot).ToHashSet();
             HashSet<NPC> allCharacters = eventGraph.C;
             
-            // Generate Spatial Graphs for each possible combination of character slots and characters.
-            foreach (Slot characterSlot in allPossibleCharacterSlots) {
-                foreach (NPC character in allCharacters) {
-                    
-                }
+            if (allPossibleCharacterSlots.Count < allCharacters.Count) {
+                throw new Exception("There are more characters than character slots.");
             }
+            
+            // Generate all possible permutations of characters and character slots.
+            
 
             throw new NotImplementedException();
 
